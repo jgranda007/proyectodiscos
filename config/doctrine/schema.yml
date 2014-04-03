@@ -1,0 +1,24 @@
+Genero:
+  actAs: {Timestampable: ~}
+  columns:
+    nombre: {type: string(255), notnull: true}
+#    fundacion: {type: integer}
+#    esta_activa: {type: boolean, default: true}
+
+Artista:
+  actAs: {Timestampable: ~}
+  columns:
+    genero_id: {type: integer, notnull: true}
+    nombre: {type: string(255), notnull: true}
+  relations:
+    Genero: {local: genero_id, foreign: id, foreignAlias: Artistas}
+    
+Album:
+  actAs: {Timestampable: ~}
+  columns:
+    artista_id: {type: integer, notnull: true}
+    nombre: {type: string(255), notnull: true}
+    urlComprar: {type: string(255)}
+    urlSpotify: {type: string(255)}
+  relations:
+    Artista: {local: artista_id, foreign: id, foreignAlias: Albumes}
