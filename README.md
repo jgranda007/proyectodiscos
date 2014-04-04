@@ -1,4 +1,4 @@
-proyectodiscosV1
+proyectodiscos
 ================
 
 Proyecto Discos
