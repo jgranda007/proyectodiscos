@@ -22,3 +22,14 @@ Album:
     urlSpotify: {type: string(255)}
   relations:
     Artista: {local: artista_id, foreign: id, foreignAlias: Albumes}
+    
+#Favoritos:
+#  actAs: {Timestampable: ~}
+#  columns:
+#    usuario_id: {type: integer, notnull: true}
+#    artista_id: {type: integer, notnull: true}
+#    album_id: {type: integer, notnull: true}
+#  relations:
+#    Artista: {local: artista_id, foreign: id, foreignAlias: idArtista}
+#    Album: {local: album_id, foreign: id, foreignAlias: idAlbum}
+#    sf_guard_user: {local: usuario_id, foreign: id, foreingAlias: idUsuario}

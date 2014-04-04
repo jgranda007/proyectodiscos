@@ -9,15 +9,18 @@
  * @property string $nombre
  * @property Genero $Genero
  * @property Doctrine_Collection $Albumes
+ * @property Doctrine_Collection $idArtista
  * 
  * @method integer             getGeneroId()  Returns the current record's "genero_id" value
  * @method string              getNombre()    Returns the current record's "nombre" value
  * @method Genero              getGenero()    Returns the current record's "Genero" value
  * @method Doctrine_Collection getAlbumes()   Returns the current record's "Albumes" collection
+ * @method Doctrine_Collection getIdArtista() Returns the current record's "idArtista" collection
  * @method Artista             setGeneroId()  Sets the current record's "genero_id" value
  * @method Artista             setNombre()    Sets the current record's "nombre" value
  * @method Artista             setGenero()    Sets the current record's "Genero" value
  * @method Artista             setAlbumes()   Sets the current record's "Albumes" collection
+ * @method Artista             setIdArtista() Sets the current record's "idArtista" collection
  * 
  * @package    proyectodiscos
  * @subpackage model
@@ -48,6 +51,10 @@ abstract class BaseArtista extends sfDoctrineRecord
              'foreign' => 'id'));
 
         $this->hasMany('Album as Albumes', array(
+             'local' => 'id',
+             'foreign' => 'artista_id'));
+
+        $this->hasMany('Favoritos as idArtista', array(
              'local' => 'id',
              'foreign' => 'artista_id'));
 

@@ -18,14 +18,12 @@ class albumActions extends sfActions
   public function executeIndex(sfWebRequest $request)
   {
     $this->album=Doctrine::getTable('Album')->getTodos();
-    #$this->forward('default', 'module');
   }
   
   public function executeFiltradosPorArtista(sfWebRequest $request)
   {
     $artista=Doctrine::getTable('Artista')->find($request->getParameter('id'));
     $this->album=Doctrine::getTable('Album')->getFiltradosPorArtista($artista);
-    #echo $this->modelos;
     $this->setTemplate('index');
   }
 }

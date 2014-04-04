@@ -12,4 +12,5 @@
       </td>  
     </tr>
   <?php endforeach; ?>
+  <?php echo link_to('Cerrar Sesion', 'sf_guard_signout', array('class'=>'enlace','style'=>'color: #ff0000')); ?>
 </table>

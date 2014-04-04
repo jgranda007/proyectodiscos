@@ -4,7 +4,7 @@
 # default rules
 homepage:
   url:   /
-  param: { module: default, action: index }
+  param: { module: genero, action: index }
 
 listado_artistas_por_genero:
   url:   /artista/:id
@@ -15,6 +15,23 @@ listado_albumes_por_artista:
   url:   /album/:id
   param: { module: album, action: filtradosPorArtista }
 
+#sfGuardAuth
+sf_guard_signin:
+  url:   /ingresar
+  param: { module: sfGuardAuth, action: signin }
+
+sf_guard_signout:
+  url:   /salir
+  param: { module: sfGuardAuth, action: signout }
+
+sf_guard_password:
+  url:   /recuperar-password
+  param: { module: sfGuardAuth, action: password }
+
+sf_guard_register:
+  url:  /registro
+  param: { module: sfGuardRegister, action: index }
+  
 # generic rules
 # please, remove them by adding more specific rules
 default_index:

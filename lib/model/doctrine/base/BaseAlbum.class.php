@@ -10,17 +10,20 @@
  * @property string $urlComprar
  * @property string $urlSpotify
  * @property Artista $Artista
+ * @property Doctrine_Collection $idAlbum
  * 
- * @method integer getArtistaId()  Returns the current record's "artista_id" value
- * @method string  getNombre()     Returns the current record's "nombre" value
- * @method string  getUrlComprar() Returns the current record's "urlComprar" value
- * @method string  getUrlSpotify() Returns the current record's "urlSpotify" value
- * @method Artista getArtista()    Returns the current record's "Artista" value
- * @method Album   setArtistaId()  Sets the current record's "artista_id" value
- * @method Album   setNombre()     Sets the current record's "nombre" value
- * @method Album   setUrlComprar() Sets the current record's "urlComprar" value
- * @method Album   setUrlSpotify() Sets the current record's "urlSpotify" value
- * @method Album   setArtista()    Sets the current record's "Artista" value
+ * @method integer             getArtistaId()  Returns the current record's "artista_id" value
+ * @method string              getNombre()     Returns the current record's "nombre" value
+ * @method string              getUrlComprar() Returns the current record's "urlComprar" value
+ * @method string              getUrlSpotify() Returns the current record's "urlSpotify" value
+ * @method Artista             getArtista()    Returns the current record's "Artista" value
+ * @method Doctrine_Collection getIdAlbum()    Returns the current record's "idAlbum" collection
+ * @method Album               setArtistaId()  Sets the current record's "artista_id" value
+ * @method Album               setNombre()     Sets the current record's "nombre" value
+ * @method Album               setUrlComprar() Sets the current record's "urlComprar" value
+ * @method Album               setUrlSpotify() Sets the current record's "urlSpotify" value
+ * @method Album               setArtista()    Sets the current record's "Artista" value
+ * @method Album               setIdAlbum()    Sets the current record's "idAlbum" collection
  * 
  * @package    proyectodiscos
  * @subpackage model
@@ -57,6 +60,10 @@ abstract class BaseAlbum extends sfDoctrineRecord
         $this->hasOne('Artista', array(
              'local' => 'artista_id',
              'foreign' => 'id'));
+
+        $this->hasMany('Favoritos as idAlbum', array(
+             'local' => 'id',
+             'foreign' => 'album_id'));
 
         $timestampable0 = new Doctrine_Template_Timestampable();
         $this->actAs($timestampable0);

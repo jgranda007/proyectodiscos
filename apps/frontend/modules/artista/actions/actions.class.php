@@ -18,14 +18,12 @@ class artistaActions extends sfActions
   public function executeIndex(sfWebRequest $request)
   {
     $this->artista=Doctrine::getTable('Artista')->getTodos();
-    #$this->forward('default', 'module');
   }
   
   public function executeFiltradosPorGenero(sfWebRequest $request)
   {
     $genero=Doctrine::getTable('Genero')->find($request->getParameter('id'));
     $this->artista=Doctrine::getTable('Artista')->getFiltradosPorGenero($genero);
-    #echo $this->modelos;
     $this->setTemplate('index');
   }
 }
